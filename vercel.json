@@ -1,1 +1,16 @@
-{ "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/dist" }] }
+{
+  "version": 2,
+  "builds": [
+      {
+          "src": "/vercel/output",
+          "use": "@vercel/node",
+          "config": { "includeFiles": ["/vercel/output/**"] }
+      }
+  ],
+  "routes": [
+      {
+          "src": "/(.*)",
+          "dest": "/vercel/output"
+      }
+  ]
+}
