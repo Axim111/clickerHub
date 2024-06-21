@@ -16,17 +16,6 @@ bot.start((ctx) => ctx.reply('Welcome111'))
 const WEBHOOK_URL = `${process.env.BOT_WEBHOOK}`;
 
 const TELEGRAM_API = `https://api.telegram.org/bot${process.env.BOT_TOKEN}`;
-const setWebhook = async () => {
-  try {
-    const response = await axios.post(
-      `${TELEGRAM_API}/setWebhook?url=${WEBHOOK_URL}`
-    );
-    console.log(response.data);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 
 bot.launch({
   webhook: {
@@ -34,7 +23,7 @@ bot.launch({
     domain: `${process.env.BOT_WEBHOOK}`,
 
 
-    port: 8443
+    port: 3000
 
 
   },
@@ -46,7 +35,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(3000, async () => {
+app.listen(3001, async () => {
   // console.log("Server running on port 3000");
-  await setWebhook()
+  
 });
