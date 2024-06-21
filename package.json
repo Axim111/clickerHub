@@ -6,9 +6,9 @@
 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"tsc && node ./dist/index.js",
-    "dev": "tsc && nodemon index.ts",
-    "build":"tsc"
+    "start":"ts-node index.ts",
+    "dev": "tsc && nodemon index.ts"
+
   },
   "keywords": [],
   "author": "",
