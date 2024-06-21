@@ -18,7 +18,7 @@ const TELEGRAM_API = `https://api.telegram.org/bot${process.env.BOT_TOKEN}`;
 const setWebhook = async () => {
   try {
     const response = await axios.post(
-      `${TELEGRAM_API}/setWebhook`
+      `${TELEGRAM_API}/setWebhook?url=${WEBHOOK_URL}`
     );
     console.log(response.data);
   } catch (error) {
