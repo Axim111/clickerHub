@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(3000, async () => {
+app.listen(8443, async () => {
   // console.log("Server running on port 3000");
   await setWebhook()
 });
