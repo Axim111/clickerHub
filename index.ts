@@ -18,7 +18,7 @@ const TELEGRAM_API = `https://api.telegram.org/bot${process.env.BOT_TOKEN}`;
 const setWebhook = async () => {
   try {
     const response = await axios.post(
-      `${TELEGRAM_API}/deleteWebhook`
+      `${TELEGRAM_API}/setWebhook`
     );
     console.log(response.data);
   } catch (error) {
@@ -27,14 +27,7 @@ const setWebhook = async () => {
 };
 
 
-bot.launch({
-  webhook: {
-    domain: WEBHOOK_URL,
-
-    port: 3000,
-
-   
-  }}),
+bot.launch(),
 
 
 
