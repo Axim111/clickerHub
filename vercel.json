@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "buildCommand": "tsc",
+      "buildCommand": "node i && tsc",
 
       "src": "dist/index.js",
       "use": "@vercel/node",
