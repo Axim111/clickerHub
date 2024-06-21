@@ -14,6 +14,7 @@ app.use(express.json());
 const bot = new Telegraf(`${process.env.BOT_TOKEN}`);
 bot.start((ctx) => ctx.reply('Welcome'))
 const WEBHOOK_URL = `${process.env.BOT_WEBHOOK}`;
+
 const TELEGRAM_API = `https://api.telegram.org/bot${process.env.BOT_TOKEN}`;
 const setWebhook = async () => {
   try {
@@ -35,7 +36,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(3001, async () => {
+app.listen(3000, async () => {
   // console.log("Server running on port 3000");
   await setWebhook()
 });
