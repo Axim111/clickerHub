@@ -2,6 +2,8 @@
   "version": 2,
   "builds": [
     {
+      "buildCommand": "tsc",
+
       "src": "dist/index.js",
       "use": "@vercel/node",
       "config": { "includeFiles": ["dist/**"] }
