@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
-
-
+  "type": "module",
   "scripts": {
+
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start":"tsc && node ./dist/index.js",
-    "dev": "tsc && nodemon index.ts"
-
+    "start": "tsc && node ./dist/index.js",
+    "startForNodeV20": "node --loader ts-node/esm index.ts",
+    "devForNodeV20": "nodemon --exec \"node --loader ts-node/esm\" index.ts",
+    
+    "dev": "nodemon --esm index.ts"
 
   },
   "keywords": [],
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.4",
+    "tsc-watch": "^6.2.0",
     "typescript": "^5.4.5"
   }
 }
