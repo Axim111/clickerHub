@@ -19,18 +19,7 @@ const TELEGRAM_API = `https://api.telegram.org/bot${process.env.BOT_TOKEN}`;
 
 
 
-bot.launch({
-  webhook: {
-
-    domain: `${process.env.BOT_WEBHOOK}`,
-
-
-    port: 3001
-
-
-  },
-});
-
+bot.launch()
 
 
 app.get("/", (req, res) => {
@@ -38,6 +27,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(3000, async () => {
-  // console.log("Server running on port 3000");
+  await bot.createWebhook({ domain: `${process.env.BOT_WEBHOOK}`})
+  console.log("Server running on port 3000 and bot...maybe");
 
 });
