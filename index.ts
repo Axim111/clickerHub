@@ -1,28 +1,16 @@
-
-
 import express from "express"
 
+import {bot} from "./connect/bot.js"
+import {api} from "./api/api.js"
+import {start} from "./middleware/startMidleware.js"
 
-
-import  {Telegraf} from "telegraf"
 import 'dotenv/config'
 
-const app = express();
 
-app.use(express.json());
-
-const bot = new Telegraf(`${process.env.BOT_TOKEN}`);
-bot.start((ctx) => ctx.reply('Welcome111'))
-
-app.use(await bot.createWebhook({ domain: `${process.env.BOT_WEBHOOK}` }));
+api()
 
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+start()
 
-app.listen(3000, async () => {
-  
-  console.log("Server running on port 3000 and bot...maybe");
 
-});
+
