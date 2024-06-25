@@ -5,9 +5,9 @@ import {bot} from "../connect/bot.js"
 
 import 'dotenv/config'
 
-export const api = async() =>{
-  const app = express();
-
+const api = async() =>{
+   const  app = express();
+   
   app.use(express.json());
   
   
@@ -25,5 +25,8 @@ export const api = async() =>{
     console.log("Server running on port 8443 and bot...maybe");
   
   });
+  return app
   
 }
+
+export {api}

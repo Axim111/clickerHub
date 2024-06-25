@@ -7,10 +7,10 @@ import {start} from "./middleware/startMidleware.js"
 import 'dotenv/config'
 
 
-api()
+const app= api()
 
 
 start()
 
-
+export {app}
 

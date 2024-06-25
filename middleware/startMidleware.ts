@@ -1,4 +1,6 @@
-import {bot} from "../connect/bot.js"
+import {bot,Markup} from "../connect/bot.js"
+import { menuStc } from './../ctxMiddleware/menuStx.js';
+
 export const start =async()=> bot.start(async stx =>{
-  stx.reply("start")
+  menuStc(stx,Markup)
 })

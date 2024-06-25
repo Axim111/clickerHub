@@ -2,21 +2,18 @@
   "name": "clikerhub",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index.js",
+  "main": "./index.ts",
   "type": "module",
-  
   "scripts": {
-
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startAndBuild":"tsc && node ./dist/index.js",
+    "startAndBuild": "tsc && node ./dist/index.js",
     "build": "tsc",
     "startProduction": "node ./dist/index.js",
-    "start":"ts-node --esm --transpile-only index.ts",
+    "start": "ts-node --esm --transpile-only index.ts",
     "startForNodeV20": "node --loader  ts-node/esm  index.ts",
     "dev20": "nodemon --exec \"node --loader ts-node/esm\" index.ts",
-    
-    "dev": "nodemon --esm index.ts"
-
+    "dev": "nodemon --esm index.ts",
+    "vercel-build":"echo build from package"
   },
   "keywords": [],
   "author": "",
