@@ -2,7 +2,7 @@
   "name": "clikerhub",
   "version": "1.0.0",
   "description": "",
-  "main": "./index.ts",
+  "main": "./dist/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,13 +12,13 @@
     "start": "ts-node --esm --transpile-only index.ts",
     "startForNodeV20": "node --loader  ts-node/esm  index.ts",
     "dev20": "nodemon --exec \"node --loader ts-node/esm\" index.ts",
-    "dev": "nodemon --esm index.ts",
-    "vercel-build":"echo build from package"
+    "dev": "nodemon --esm index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.7.1",
     "@telegraf/types": "^7.1.0",
     "@types/express": "^4.17.21",
     "@types/node": "^20.14.7",
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.4",
+    "prisma": "^5.7.1",
     "tsc-watch": "^6.2.0",
     "typescript": "^5.4.5"
   }

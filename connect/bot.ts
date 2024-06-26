@@ -1,4 +1,9 @@
-import  {Telegraf, Markup} from "telegraf"
+import  {Telegraf, Markup,session} from "telegraf"
 import 'dotenv/config'
-const bot = new Telegraf(`${process.env.BOT_TOKEN}`);
+import { IMyContext } from "../types/session.js"
+const bot = new Telegraf<IMyContext>(`${process.env.BOT_TOKEN}`);
+bot.use(session({
+  defaultSession: () => (
+    { user:0 })
+}))
 export {bot, Markup}

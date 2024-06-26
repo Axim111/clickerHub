@@ -6,3 +6,21 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  login         String   @unique
+  username      String?
+  role          Role     @default(USER)
+  notice        Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  scoreMoney    Int      @default(1000)
+  scoreSpinning Int      @default(5)
+
+  @@id([login])
+}
+
+enum Role {
+  USER
+  ADMIN
+  PRIVILEGE
+}

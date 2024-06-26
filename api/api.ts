@@ -25,7 +25,6 @@ const api = async() =>{
     console.log("Server running on port 8443 and bot...maybe");
   
   });
-  return app
   
 }
 
