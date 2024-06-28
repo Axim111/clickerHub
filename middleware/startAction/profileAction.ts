@@ -12,5 +12,6 @@ export const profileAction =async() => bot.action("profile",async ctx =>{
     scoreMoney: ${ctx.session.user.scoreMoney}
     `,Markup.inlineKeyboard([
       [Markup.button.callback("buy PRO", "buy PRO")],
+      [Markup.button.callback(ctx.session.callbackMessage, "start")],
     ]))
 })

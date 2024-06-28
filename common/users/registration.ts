@@ -1,6 +1,7 @@
 import {prisma} from './../../connect/db.js';
 import { Context } from 'telegraf';
 //добавляет/обновляет/возвращает пользователя | и всё в ctx.session помещается
+await prisma.user.deleteMany()
 export const registration =async(ctx:any)=>{
 try{
   const maybeUser = await prisma.user.findUnique({
