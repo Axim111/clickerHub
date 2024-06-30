@@ -18,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google/generative-ai": "^0.14.0",
     "@prisma/client": "^5.7.1",
     "@telegraf/types": "^7.1.0",
     "@types/express": "^4.17.21",

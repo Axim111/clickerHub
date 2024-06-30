@@ -1,5 +1,5 @@
+import { IMyContext } from '../../types/session.js';
 import {prisma} from './../../connect/db.js';
-import { Context } from 'telegraf';
 //добавляет/обновляет/возвращает пользователя | и всё в ctx.session помещается
 await prisma.user.deleteMany()
 export const registration =async(ctx:any)=>{
@@ -17,7 +17,7 @@ try{
         username:ctx.from.first_name,
       }
     })
-    ctx.session.user=user
+     ctx.session.user=user
     
     return user
   }
