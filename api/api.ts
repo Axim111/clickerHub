@@ -20,9 +20,9 @@ const api = async() =>{
     res.send("Hello World!"); 
   });
   
-  app.listen(3000, async () => {
+  app.listen(process.env.PORT, async () => {
     
-    console.log("Server running on port 8443 and bot...maybe");
+    console.log(`Server running on port ${process.env.PORT} and bot...maybe`);
   
   });
   
