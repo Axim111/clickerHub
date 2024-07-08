@@ -9,8 +9,7 @@ bot.use(session({
       language:"eng"
 
     }) 
-})) //без init значения не работает
-//здесь похоронен path
-//path - мой личный способ отслеживать маршруты
-//принимает он название action 
+}))
+
+// bot.use(Telegraf.log())
 export {bot, Markup}

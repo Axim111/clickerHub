@@ -1,35 +1,23 @@
-import { Composer, Context, Markup, Scenes, session, Telegraf } from "telegraf";
+import { Composer, Context, Markup, Scenes, session, Telegraf } from 'telegraf'
 
-import { User } from '@prisma/client';
+import { User } from '@prisma/client'
 interface SessionData {
-	user: User|any;
-	callbackMessage: string,
-	language:string
-
+  user: User | any
+  callbackMessage: string
+  language: string
 }
-
-
-
-
 
 export interface IMyContext extends Context {
-
-
-	session: SessionData;
-	
+  session: SessionData
 }
 
-
-
-
 interface MyWizardSession extends Scenes.WizardSessionData {
-	myWizardSessionProp: number;
+  myWizardSessionProp: number
 }
 
 export interface VMyContext extends Context {
-	myContextProp: string;
+  myContextProp: string
 
-	scene: Scenes.SceneContextScene<VMyContext, MyWizardSession>;
-	wizard: Scenes.WizardContextWizard<VMyContext>;
-
+  scene: Scenes.SceneContextScene<VMyContext, MyWizardSession>
+  wizard: Scenes.WizardContextWizard<VMyContext>
 }

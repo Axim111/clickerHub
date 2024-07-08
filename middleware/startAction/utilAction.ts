@@ -4,11 +4,14 @@ import { Telegraf } from 'telegraf';
 
 
 export const utilAction =async() => bot.action("util",async ctx =>{
-  await ctx.deleteMessage(); //может удалить сообщение собеседника
 
-  ctx.reply(`pick`,Markup.inlineKeyboard([
-      [Markup.button.callback("img-to-text", "img-to-text")],
-      [Markup.button.callback("GPT", "GPT")],
-      [Markup.button.callback(ctx.session.callbackMessage, "start")],
-    ]))
+const text = `choice utile`
+const markUtils = [
+  [Markup.button.callback("img-to-text", "img-to-text")],
+  [Markup.button.callback("GPT", "GPT")],
+  [Markup.button.callback(ctx.session.callbackMessage, "start")],
+]
+
+await ctx.editMessageText(text,{reply_markup:{inline_keyboard: markUtils}})
+
 })

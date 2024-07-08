@@ -4,14 +4,19 @@ import { Telegraf } from 'telegraf';
 
 
 export const profileAction =async() => bot.action("profile",async ctx =>{
-  await ctx.deleteMessage(); //может удалить сообщение собеседника
 
-  ctx.reply(`
-    name: ${ctx.session.user.username}
-    role: ${ctx.session.user.role}
-    scoreMoney: ${ctx.session.user.scoreMoney}
-    `,Markup.inlineKeyboard([
-      [Markup.button.callback("buy PRO", "buy PRO")],
-      [Markup.button.callback(ctx.session.callbackMessage, "start")],
-    ]))
+    const text = `
+    name: ${await ctx.session.user.username}
+    role: ${await ctx.session.user.role}
+    scoreMoney: ${await ctx.session.user.scoreMoney}
+    `
+const markProfile = [
+        [Markup.button.callback("buy PRO", "buy PRO")],
+        [Markup.button.callback(ctx.session.callbackMessage, "start")],
+      ]
+  
+await ctx.editMessageText(text,{reply_markup:{inline_keyboard: markProfile}})
+
+
+
 })
