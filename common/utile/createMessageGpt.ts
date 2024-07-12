@@ -7,7 +7,6 @@ export const createMessageGpt = async (
   text: string,
   side: enumSideType
 ) => {
-  console.log('what')
   try {
     const message = await prisma.message.create({
       data: {
