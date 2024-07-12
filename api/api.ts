@@ -46,7 +46,7 @@ const api = async () => {
     console.log(message)
     await createMessageGpt(id, message, 'OPPOSITE')
     res.send(message)
-  })1
+  })
 
   app.listen(process.env.PORT, async () => {
     console.log(`Server running on port ${process.env.PORT} and bot...maybe`)
