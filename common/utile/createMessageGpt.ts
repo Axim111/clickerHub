@@ -2,7 +2,12 @@ import { enumSideType } from '../../types/db.js'
 import { IMyContext } from '../../types/session.js'
 import { prisma } from './../../connect/db.js'
 //добавляет/обновляет/возвращает пользователя | и всё в ctx.session помещается
-export const createMessageGpt = async (login: string, text: string,side:enumSideType) => {
+export const createMessageGpt = async (
+  login: string,
+  text: string,
+  side: enumSideType
+) => {
+  console.log('what')
   try {
     const message = await prisma.message.create({
       data: {

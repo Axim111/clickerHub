@@ -43,7 +43,8 @@ const api = async () => {
     const id = req.params.id
     await createMessageGpt(id, req.body.text, 'ME')
     const message = await GPTUtil(req.body.text)
-    await createMessageGpt(id, req.body.text, 'OPPOSITE')
+    console.log(message)
+    await createMessageGpt(id, message, 'OPPOSITE')
     res.send(message)
   })
 
