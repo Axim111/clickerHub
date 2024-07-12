@@ -8,19 +8,34 @@ datasource db {
 }
 
 model User {
-  login         String   @unique
+  login         String    @unique
   username      String?
-  role          Role     @default(USER)
-  notice        Boolean  @default(true)
-  createdAt     DateTime @default(now())
-  scoreMoney    Int      @default(1000)
-  scoreSpinning Int      @default(5)
+  role          Role      @default(USER)
+  notice        Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  scoreMoney    Int       @default(1000)
+  scoreSpinning Int       @default(5)
+  message       Message[]
 
   @@id([login])
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  side      Side
+  text      String
+  user      User     @relation(fields: [userLogin], references: [login])
+  userLogin String
 }
 
 enum Role {
   USER
   ADMIN
   PRIVILEGE
+}
+
+enum Side {
+  OPPOSITE
+  ME
 }
