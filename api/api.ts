@@ -5,9 +5,10 @@ import cors from 'cors'
 
 import 'dotenv/config'
 import { getUserById } from '../common/users/getUserById.js'
-import { createMessageGpt } from '../common/utile/createMessageGpt.js'
+import { createMessagesGpt } from '../common/utile/createMessagesGpt.js'
 import { getMessagesGpt } from '../common/utile/getMessagesGpt.js'
 import { GPTUtil } from '../utils/GPTUtil.js'
+import { deleteMessagesGpt } from '../common/utile/deleteMessagesGpt.js'
 
 const api = async () => {
   const app = express()
@@ -15,7 +16,7 @@ const api = async () => {
   app.use(express.json())
 
   const corsOptions = {
-    origin: [process.env.WEB_APP],
+    origin: '*',
   }
 
   app.use(cors(corsOptions))
@@ -41,10 +42,15 @@ const api = async () => {
 
   app.post('/createMessageAndAnswer/:id', async (req, res) => {
     const id = req.params.id
-    await createMessageGpt(id, req.body.text, 'ME')
-    const message = await GPTUtil(req.body.text)
-    await createMessageGpt(id, message, 'OPPOSITE')
-    res.send(message)
+    await createMessagesGpt(id, req.body.text, 'ME')
+    // const message = await GPTUtil(req.body.text)
+    await createMessagesGpt(id, 'good', 'OPPOSITE')
+    res.send('good')
+  })
+  app.post('/deleteMessages/:id', async (req, res) => {
+    const id = req.params.id
+    const status = await deleteMessagesGpt(id)
+    if (status) res.status(200)
   })
 
   app.listen(process.env.PORT, async () => {
