@@ -1,1 +1,1 @@
-export type enumSideType = "ME"|"OPPOSITE"
+export type enumSideType = 'ME' | 'OPPOSITE'

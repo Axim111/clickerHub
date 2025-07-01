@@ -27,7 +27,7 @@ export const gptAction = async () => {
         await keyboardStart(ctx, 'gpt was closed')
         return
       }
-      GPTUtilBot(ctx, prompt)
+      await GPTUtilBot(ctx, prompt)
     })
   })
 }
